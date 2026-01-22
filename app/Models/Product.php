@@ -15,67 +15,23 @@ class Product extends Model
      * The attributes that are mass assignable.
      */
     protected $fillable = [
-        'category_id',
         'name',
-        'slug',
-        'description',
-        'short_description',
+        'category',
+        'description',       
         'price',
-        'sale_price',
-        'sku', // Stock Keeping Unit (Unique Identifier)
-        'stock_quantity',
+        'stock',
         'image',
-        'is_active',
-        'is_featured',
+        'size',
+        
     ];
 
     /**
      * Casts for data types.
      */
     protected $casts = [
-        'price' => 'decimal:2',
-        'sale_price' => 'decimal:2',
-        'is_active' => 'boolean',
-        'is_featured' => 'boolean',
+        
     ];
 
-    /**
-     * Get the category that owns the product.
-     */
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
-    }
+ 
 
-    /**
-     * Get the items in orders that contain this product.
-     */
-    public function orderItems(): HasMany
-    {
-        return $this->hasMany(OrderItem::class);
-    }
-
-    /**
-     * Scope a query to only include active products.
-     */
-    public function scopeActive($query)
-    {
-        return $query->where('is_active', true);
-    }
-
-    /**
-     * Helper to determine if the product is on sale.
-     */
-    public function getInStockAttribute(): bool
-    {
-        return $this->stock_quantity > 0;
-    }
-
-    /**
-     * Use slug for routing instead of ID.
-     */
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
 }

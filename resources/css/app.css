@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.h3_dashord {
+    width: 100px;
+    font-weight: 100;
+}
