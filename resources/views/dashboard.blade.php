@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classic Boutique | Sneaker Shop</title>
+    <title>Shoe Studio | TEE KICKS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -11,12 +11,12 @@
         h1, h2 { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body class="bg-[#fdfdfd] text-gray-900">
+<body class="bg-[white] text-gray-900">
 
     <!-- Minimalist Navigation -->
     <nav class="flex justify-between items-center px-12 py-8 bg-white border-b">
         <div class="text-xs tracking-[0.4em] font-light">EST. 2024</div>
-        <div class="text-3xl font-bold tracking-tighter uppercase italic">Sneaker Elite</div>
+        <div class="text-3xl font-bold tracking-tighter uppercase italic">TEE KICKS</div>
         <div class="flex space-x-8 items-center font-light text-sm">
             <a href="#" class="hover:underline">BRANDS</a>
             <a href="#" class="hover:underline">NEW ARRIVALS</a>
@@ -52,28 +52,7 @@
     </div>
 
     <!-- Product Grid -->
-    <section class="px-12 pb-24">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-12">
-            
-            <!-- Product Card Loop -->
-            @foreach($products as $product)
-            <div class="group cursor-pointer">
-                <div class="relative bg-gray-100 overflow-hidden mb-4 rounded-sm">
-                    <img src="{{ asset('storage/' . $product->image) }}" class="w-full h-80 object-contain p-8 group-hover:scale-110 transition duration-500">
-                    <div class="absolute bottom-0 w-full opacity-0 group-hover:opacity-100 transition duration-300">
-                        <button class="w-full bg-black text-white py-3 text-xs tracking-widest font-bold">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">{{ $product->brand }}</p>
-                    <h3 class="font-semibold text-lg">{{ $product->name }}</h3>
-                    <p class="text-gray-600 mt-2 font-light">${{ number_format($product->price, 2) }}</p>
-                </div>
-            </div>
-            @endforeach
 
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="bg-black text-white py-20 px-12">
